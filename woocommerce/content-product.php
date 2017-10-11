@@ -1,9 +1,9 @@
 <?php
 /**
  * @author Ondřej Doněk <ondrejd@gmail.com>
- * @link https://github.com/ondrejd/https://github.com/ondrejd/hamilton-child for the canonical source repository
+ * @link https://github.com/ondrejd/https://github.com/ondrejd/ondrejdfirst for the canonical source repository
  * @license https://www.gnu.org/licenses/gpl-3.0.en.html GNU General Public License 3.0
- * @package hamilton-child
+ * @package ondrejdfirst
  * @since 1.0.0
  * @global WC_Product_Simple $product
  */
@@ -21,7 +21,7 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 
 // Get product image
 $thumbnail = get_post_thumbnail_id( $product->get_id() );
-$image_arr = wp_get_attachment_image_src( $thumbnail, 'hamilton_preview-image' );
+$image_arr = wp_get_attachment_image_src( $thumbnail, 'ondrejdfirst_preview-image' );
 $image_url = '';
 
 if( is_array( $image_arr ) ) {

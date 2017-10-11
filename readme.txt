@@ -1,11 +1,11 @@
-=== Hamilton ===
-Contributors: Anlino
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=anders%40andersnoren%2ese&lc=US&item_name=Free%20WordPress%20Themes%20from%20Anders%20Noren&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted
+=== OndrejdFirst ===
+Contributors: Ondřej Doněk
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=ondrejd%40gmail%2ecom&lc=CZ&item_name=ondrejd%2fodwp%2dwc%2dorderbyvisits&currency_code=CZK&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted
 Requires at least: 4.4
-Tested up to: 4.8
+Tested up to: 4.8.2
 Stable tag: trunk
-License: GPLv2 or later
-License URI: https://www.gnu.org/licenses/gpl-2.0.html
+License: GPLv3
+License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
 
 
 == Installation ==
@@ -19,7 +19,7 @@ All theme specific options are handled through the WordPress Customizer.
 == Resume Page Template ==
 
 1. Create a new page, or edit an existing one
-2. Click the dropdown beneath "Template" in "Page Attributes", and select Resum.
+2. Click the dropdown beneath "Template" in "Page Attributes", and select Resume.
 
 In the resume page template, all titles span the entire width of the content, whereas all other elements are aligned to the right. This enables you to create sections in the resume content by simple adding another title. For instance, adding a title called "Education" and adding a paragraph of text beneath it will automatically create a section with the "Education" title to the left and the paragraph of text to the right.
 

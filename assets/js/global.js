@@ -1,6 +1,6 @@
 jQuery( document ).ready( function( $ ) {
-	
-	
+
+
 	// Add class to elements when they're in view
 	function isScrolledIntoView(elem) {
 		var docViewTop = $(window).scrollTop(),
@@ -12,7 +12,7 @@ jQuery( document ).ready( function( $ ) {
 
 		return ( elemBottom <= docViewBottom );
 	}
-	
+
 	function fadeInSpotted() {
 		$( '.tracker' ).each( function () {
 			$( this ).addClass( 'will-spot' );
@@ -21,7 +21,7 @@ jQuery( document ).ready( function( $ ) {
 			}
 		} );
 	}
-	
+
 	if ( $( '.tracker' ).length ) {
 		$( window ).on( 'load', function () {
 			fadeInSpotted();
@@ -34,13 +34,13 @@ jQuery( document ).ready( function( $ ) {
 			} );
 		} );
 	}
-	
-	
+
+
 	//Masonry blocks
 	$container = $( '.posts' );
-	
+
 	$container.css({ 'opacity': 0 });
-	
+
 	function masonryInit(){
 		$container.masonry({
 			itemSelector: '.post-preview',
@@ -54,16 +54,16 @@ jQuery( document ).ready( function( $ ) {
 		fadeInSpotted();
 		$container.animate({ opacity: 1.0 }, 500 );
 	});
-	
-	$( document ).ready( function() { 
-		setTimeout( function() { masonryInit(); }, 500 ); 
+
+	$( document ).ready( function() {
+		setTimeout( function() { masonryInit(); }, 500 );
 	} );
 
 	$( window ).resize( function () {
 		masonryInit();
 	} );
-	
-	
+
+
 	// Parallax effect on the fade blocks
 	var scroll = window.requestAnimationFrame ||
 				 window.webkitRequestAnimationFrame ||
@@ -72,33 +72,33 @@ jQuery( document ).ready( function( $ ) {
 				 window.oRequestAnimationFrame ||
 				 // IE Fallback, you can even fallback to onscroll
 				 function(callback){ window.setTimeout(callback, 1000/60) };
-				 
+
 	function loop(){
-	
+
 		var windowOffset = window.pageYOffset;
-		
+
 		if ( windowOffset < $( window ).outerHeight() ) {
-            $( '.fade-block' ).css({ 
+            $( '.fade-block' ).css({
 				'transform': 'translateY( ' + Math.ceil ( windowOffset * 0.25 ) + 'px)',
 				'opacity': 1 - ( windowOffset * 0.002 )
 			});
         }
-	
+
 		scroll( loop )
-	
+
 	}
 	loop();
 
 
 	// Toggle navigation
-	$( '.nav-toggle' ).on( 'click', function(){	
+	$( '.nav-toggle' ).on( 'click', function(){
 		$( this ).add( '.site-nav' ).toggleClass( 'active' );
 		$( 'body' ).toggleClass( 'lock-screen' );
 	} );
-	
-        			
+
+
 	// Resize videos after their container
-	var vidSelector = ".post iframe, .post object, .post video, .widget-content iframe, .widget-content object, .widget-content iframe";	
+	var vidSelector = ".post iframe, .post object, .post video, .widget-content iframe, .widget-content object, .widget-content iframe";
 	var resizeVideo = function(sSel) {
 		$( sSel ).each(function() {
 			var $video = $(this),
@@ -122,8 +122,8 @@ jQuery( document ).ready( function( $ ) {
 	$( window ).resize( function() {
 		resizeVideo( vidSelector );
 	} );
-	
-	
+
+
 	// Smooth scroll to anchor links
 	$('a[href*="#"]')
 	// Remove links that don't actually link to anything
@@ -145,8 +145,8 @@ jQuery( document ).ready( function( $ ) {
 			}
 		}
 	})
-	
-	
+
+
 	// If the website has a custom logo, adjust the site-nav top
 	// padding to make sure it is consistent with image dimensions
 	if ( $( 'body').hasClass( 'wp-custom-logo' ) ) {
@@ -161,7 +161,7 @@ jQuery( document ).ready( function( $ ) {
 
 	}
 
-	
+
 	// Intercept the Jetpack Load More button when it's reinserted
 	$( document ).bind( 'DOMNodeInserted', function( e ) {
 		var $target = $( e.target );
@@ -169,18 +169,18 @@ jQuery( document ).ready( function( $ ) {
 			$target.hide();
 		}
 	} );
-	
-	
+
+
 	// Triggers re-layout on Jetpack infinite scroll
 	infinite_count = 0;
     $( document.body ).on( 'post-load', function() {
 
         infinite_count = infinite_count + 1;
-		
+
 		// Target the new items and hide them
 		var $selector = $( '#infinite-view-' + infinite_count ),
         	$elements = $selector.find( '.post-preview' );
-			
+
 		$elements.hide();
 
 		// When images are loaded, show them again
@@ -188,7 +188,7 @@ jQuery( document ).ready( function( $ ) {
             $container.append( $elements );
 			$elements.show();
 			$container.masonry( 'appended', $elements );
-			
+
 			// Prepare for fade-in animation on scroll
 			$elements.each( function( index ) {
 				if ( $( this ).offset().top < ( $( window ).height() + $( window ).scrollTop() ) ) {
@@ -196,18 +196,35 @@ jQuery( document ).ready( function( $ ) {
 				} else {
 					$( this ).addClass( 'will-spot' ).removeClass( 'spotted' );
 				}
-				
+
 			} );
-			
-			setTimeout( function() { 
+
+			setTimeout( function() {
 				masonryInit();
-			}, 500 ); 
-			
+			}, 500 );
+
 			// Show the load more button again
 			$( '#infinite-handle' ).fadeIn();
-			
-        });
 
+        });
     });
-	
-});
+
+	// Toggle fancy orderby menu
+	function toggleFancyOrderby() {
+		jQuery( '.ondrejdfirst-wc-ordering' ).toggleClass( 'active' );
+		jQuery( 'body' ).toggleClass( 'lock-screen' );
+	}
+
+	// Fancy Orderby
+	jQuery( '.ondrejdfirst-ordering-button' ).click( toggleFancyOrderby );
+	jQuery( '.ondrejdfirst-wc-ordering li a').click( function( e ) {
+		toggleFancyOrderby();
+		var val = jQuery( this ).data( 'orderby' );
+		console.log( 'Orderby menu item "' + val + '" was clicked!' );
+		jQuery( 'select[name="orderby"]' ).val( val );
+		jQuery( 'select[name="orderby"] option' ).removeAttr( 'selected' );
+		jQuery( 'select[name="orderby"] option[value="' + val + '"]' ).attr( 'selected', 'selected' );
+		jQuery( 'form.woocommerce-ordering' ).submit();
+		e.preventDefault();
+	} );
+} );

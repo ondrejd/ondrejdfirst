@@ -1,0 +1,37 @@
+/**
+ * @author Ondřej Doněk <ondrejd@gmail.com>
+ * @link https://github.com/ondrejd/https://github.com/ondrejd/ondrejdfirst for the canonical source repository
+ * @license https://www.gnu.org/licenses/gpl-3.0.en.html GNU General Public License 3.0
+ * @package ondrejdfirst
+ * @since 1.0.0
+ */
+
+.cookies-usage-warning {
+    background-color: #000;
+    color: #FFFFFF;
+    height: 50px;
+    padding: 0;
+    position: sticky;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+}
+.ubuntu .cookies-usage-warning {}
+.ubuntu-dark .cookies-usage-warning {}
+.cookies-usage-warning p {
+    float: left;
+    font-size: 14px;
+    line-height: 16px;
+    margin: 0;
+    padding: 10px 0 11px 15%;
+    width: 80%;
+}
+.cookies-usage-warning form {
+    float: left;
+    margin: 0;
+    padding: 0 5% 0 0;
+    width: 20%;
+}
+.cookies-usage-warning input[type="submit"] {}
+.ubuntu .cookies-usage-warning input[type="submit"] {}
+.ubuntu-dark .cookies-usage-warning input[type="submit"] {}

@@ -1,7 +1,15 @@
-<?php 
+<?php
+/**
+ * Template Name: Resume
+ * @author Ondřej Doněk <ondrejd@gmail.com>
+ * @link https://github.com/ondrejd/https://github.com/ondrejd/ondrejdfirst for the canonical source repository
+ * @license https://www.gnu.org/licenses/gpl-3.0.en.html GNU General Public License 3.0
+ * @package ondrejdfirst
+ * @since 1.0.0
+ */
 
-/* Template Name: Resume */
+if( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
 
-/* We only need the page template specific body_class for styling – other than that, the page template is exactly the same as all other singulars. Because of this, we can just include the singular template here. */
-
-include( locate_template( 'singular.php' ) ); ?>
+include( locate_template( 'singular.php' ) );
