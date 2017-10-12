@@ -2527,7 +2527,8 @@ pre.code-snippet .style_127 { color: #657b83; }
 .ondrejdfirst-footer-text {
     line-height: 1.45em;
 }
-.ubuntu .ondrejdfirst-footer-text {}
+.ubuntu .ondrejdfirst-footer-text a {}
+.ubuntu-dark .ondrejdfirst-footer-text a {}
 
 /**
  * Post previews (e.g. Blog)
@@ -2614,21 +2615,6 @@ pre.code-snippet .style_127 { color: #657b83; }
 }
 
 /**
- * Customize anchors in header
- */
-a { transition: all .6s ease-in-out; }
-.site-title a, .site-title a:hover, .site-title a:visited, .site-title a:active,
-.alt-nav a, .alt-nav a:hover, .alt-nav a:visited, .alt-nav a:active,
-.ondrejdfirst-wc-ordering ul a, .ondrejdfirst-wc-ordering ul a:hover,
-.ondrejdfirst-wc-ordering ul a:visited, .ondrejdfirst-wc-ordering ul a:active
-.ondrejdfirst-footer-text a, .ondrejdfirst-footer-text a:hover,
-.ondrejdfirst-footer-text a:visited, .ondrejdfirst-footer-text a:active {
-    border-bottom: 0.25em solid transparent;
-    padding-bottom: 0.25em;
-    text-decoration: none !important;
-}
-
-/**
  * User meta on front page (social menu)
  */
 .user-meta { width: 100%; }
@@ -2694,8 +2680,6 @@ a { transition: all .6s ease-in-out; }
 .posts-filters .post-categories li {
     display: inline-block;
 }
-.posts-filters .post-categories li a {}
-.posts-views {}
 
 
 /**
@@ -2810,8 +2794,6 @@ a { transition: all .6s ease-in-out; }
     height: 32px;
     font-size: 32px;
 }
-#ondrejdfirst-ordering .dashicons {}
-.ondrejdfirst-wc-ordering .dashicons {}
 .ondrejdfirst-wc-ordering {
 	background: #ffffff;
 	opacity: 0;
@@ -2921,12 +2903,4 @@ a { transition: all .6s ease-in-out; }
     .site-footer { padding: 50px 0 35px 0; }
     .page-header { margin-bottom: 35px; min-height: 150px; }
     .ondrejdfirst-footer-text { font-size: 0.8em; }
-    a { transition: none ! important; }
-    .site-title a, .site-title a:hover, .site-title a:visited, .site-title a:active,
-    .alt-nav a, .alt-nav a:hover, .alt-nav a:visited, .alt-nav a:active,
-    .ondrejdfirst-footer-text a, .ondrejdfirst-footer-text a:hover,
-    .ondrejdfirst-footer-text a:visited, .ondrejdfirst-footer-text a:active {
-        border-bottom-width: 0.20em;
-        padding-bottom: 0.06em;
-    }
 }
