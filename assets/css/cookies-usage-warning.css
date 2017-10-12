@@ -9,6 +9,7 @@
 .cookies-usage-warning {
     background-color: #000;
     color: #FFFFFF;
+    display: none;
     height: 50px;
     padding: 0;
     position: sticky;
@@ -35,3 +36,7 @@
 .cookies-usage-warning input[type="submit"] {}
 .ubuntu .cookies-usage-warning input[type="submit"] {}
 .ubuntu-dark .cookies-usage-warning input[type="submit"] {}
+
+body.show-cookies-usage-warning .cookies-usage-warning {
+   display: block;
+}

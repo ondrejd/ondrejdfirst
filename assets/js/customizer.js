@@ -59,9 +59,9 @@
 	wp.customize( 'ondrejdfirst_cookies_warning', function( setting ) {
 		setting.bind( function( newval ) {
 			if ( newval == true ) {
-				$( '#cookies-usage-warning--cont' ).css( 'display', 'block' );
+				$( 'body' ).addClass( 'show-cookies-usage-warning' );
 			} else {
-				$( '#cookies-usage-warning--cont' ).css( 'display', 'none' );
+				$( 'body' ).removeClass( 'show-cookies-usage-warning' );
 			}
 		} );
 	} );
