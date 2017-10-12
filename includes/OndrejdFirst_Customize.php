@@ -52,7 +52,7 @@ if( ! class_exists( 'OndrejdFirst_Customize' ) ) :
          * @since 1.0.0
          * @todo Udělat tři profily, první světlý (...|...|...|...),
          *       druhý světle fialový (#750743|#44002a|#ffffff|#e77243),
-         *       třetí tmavě fialový (#750743|#44002a|...|...);
+         *       třetí tmavě fialový (#300a24|#44002a|...|...);
          *       dle zvoleného profilu nastavit i zvolené barvy
          *       (včetně defaultních hodnot). Původní "Hamilton's Dark Mode"
          *       úplně zrušit.
@@ -64,13 +64,13 @@ if( ! class_exists( 'OndrejdFirst_Customize' ) ) :
             $wp_customize->add_setting( 'ondrejdfirst_color_mode', [
                 'capability' 		=> 'edit_theme_options',
                 'default'           => 'white',
-                'transport'         => 'postMessage',
+                'transport'         => 'postMessage'/*,
                 'sanitize_callback' => function ( $value ) {
-                    if( ! in_array( $value, ['white','ubuntu','ubuntu_dark'] ) ) {
+                    if( ! in_array( $value, ['white','ubuntu','ubuntu-dark'] ) ) {
                         return 'white';
                     }
                     return $value;
-                },
+                },*/
             ] );
             $wp_customize->add_control( 'ondrejdfirst_color_mode', [
                 'type'        => 'radio',
@@ -81,7 +81,7 @@ if( ! class_exists( 'OndrejdFirst_Customize' ) ) :
                 'choices'     => [
                     'white'       => __( 'White', 'ondrejdfirst' ),
                     'ubuntu'      => __( 'Ubuntu', 'ondrejdfirst' ),
-                    'ubuntu_dark' => __( 'Ubuntu Dark', 'ondrejdfirst' ),
+                    'ubuntu-dark' => __( 'Ubuntu Dark', 'ondrejdfirst' ),
                 ],
             ] );
 
@@ -97,7 +97,7 @@ if( ! class_exists( 'OndrejdFirst_Customize' ) ) :
                     'choices'     => [
                         'white'       => __( 'White', 'ondrejdfirst' ),
                         'ubuntu'      => __( 'Ubuntu', 'ondrejdfirst' ),
-                        'ubuntu_dark' => __( 'Ubuntu Dark', 'ondrejdfirst' ),
+                        'ubuntu-dark' => __( 'Ubuntu Dark', 'ondrejdfirst' ),
                     ],
                 ]
             ) );

@@ -123,7 +123,7 @@ body.customizer-preview {
 }
 
 body.ubuntu {
-	background: #1d1d1d;
+	background: #750743;
 	color: #fff;
 }
 
@@ -175,7 +175,7 @@ img {
 
 ::selection {
 	background: #000;
-	color: #FFF;
+	color: #fff;
 }
 
 input::-webkit-input-placeholder { color: #999; }
@@ -263,6 +263,23 @@ a {
     opacity .35;
 }
 
+.site-description {
+    display: block;
+    font-size: 75%;
+    opacity: 0.8;
+    position: relative;
+    top: 10px;
+}
+
+/* Theme Customizer buttons */
+#ondrejdfirst_blogname_customize_btn,
+#ondrejdfirst_blogdescription_customize_btn {
+    position: relative;
+    right: -2px;
+    top: -6px;
+}
+
+
 .site-header .custom-logo {
 	background: no-repeat top left;
 	background-size: contain;
@@ -318,7 +335,7 @@ a {
 
 .ubuntu .nav-toggle .bar,
 .ubuntu-dark .nav-toggle .bar {
-    color: #fff;
+    background-color: #fff;
 }
 
 .nav-toggle .bar:nth-child(1) { margin-top: -7px; }
@@ -363,8 +380,11 @@ a {
 	z-index: 9999;
 }
 
-.dark-mode .site-nav {
-	background: #1d1d1d;
+.ubuntu .site-nav {
+	background: #750743;
+}
+.ubuntu-dark .site-nav {
+    background: #300a24;
 }
 
 .site-nav.active {
@@ -402,7 +422,8 @@ a {
 	width: 100%;
 }
 
-.dark-mode .site-nav li {
+.ubuntu .site-nav li,
+.ubuntu-dark .site-nav li {
 	font-weight: 400;
 }
 
@@ -418,8 +439,10 @@ a {
 	color: rgba( 0, 0, 0, .35 );
 }
 
-.dark-mode .site-nav ul + ul a {
-	color: rgba( 255, 255, 255, .35 );
+.ubuntu .site-nav ul + ul a,
+.ubuntu-dark .site-nav ul + ul a {
+    color: #fff;
+    opacity: 0.35;
 }
 
 .site-nav ul a:hover {
@@ -431,8 +454,10 @@ a {
 	border-bottom-color: #000;
 }
 
-.dark-mode .site-nav ul:first-child a:hover,
-.dark-mode .site-nav ul:first-child .current-menu-item > a {
+.ubuntu .site-nav ul:first-child a:hover,
+.ubuntu-dark .site-nav ul:first-child .current-menu-item > a,
+.ubuntu .site-nav ul:first-child a:hover,
+.ubuntu-dark .site-nav ul:first-child .current-menu-item > a {
 	border-bottom-color: #fff;
 }
 
@@ -441,9 +466,12 @@ a {
 	border-bottom-color: rgba( 0, 0, 0, .35 );
 }
 
-.dark-mode .site-nav ul:last-child a:hover,
-.dark-mode .site-nav ul:last-child .current-menu-item > a {
-	border-bottom-color: rgba( 255, 255, 255, .35 );
+.ubuntu .site-nav ul:last-child a:hover,
+.ubuntu .site-nav ul:last-child .current-menu-item > a,
+.ubuntu-dark .site-nav ul:last-child a:hover,
+.ubuntu-dark .site-nav ul:last-child .current-menu-item > a {
+    color: #fff;
+    opacity: 0.35;
 }
 
 .site-nav footer {
@@ -455,8 +483,11 @@ a {
 		right: 0;
 }
 
-.dark-mode .site-nav footer {
-	background: #1d1d1d;
+.ubuntu .site-nav footer {
+	background: #750743;
+}
+.ubuntu-dark .site-nav footer {
+    background: #300a24;
 }
 
 .site-nav footer a {
@@ -473,8 +504,10 @@ a {
 	float: right;
 }
 
-.dark-mode .site-nav footer p:last-child {
-	color: rgba( 255, 255, 255, .35 );
+.ubuntu .site-nav footer p:last-child,
+.ubuntu-dark .site-nav footer p:last-child {
+    color: #fff;
+    opacity: 0.35;
 }
 
 
@@ -534,7 +567,8 @@ a {
 	transition: all .2s ease-in-out;
 }
 
-.dark-mode .alt-nav > li.menu-item-has-children:after {
+.ubuntu .alt-nav > li.menu-item-has-children:after,
+.ubuntu-dark .alt-nav > li.menu-item-has-children:after {
 	border-top-color: #fff;
 }
 
@@ -582,11 +616,13 @@ a {
 	left: 20px;
 }
 
-.dark-mode .alt-nav ul:after {
+.ubuntu .alt-nav ul:after,
+.ubuntu-dark .alt-nav ul:after {
 	border-bottom-color: #fff;
 }
 
-.dark-mode .alt-nav ul {
+.ubuntu .alt-nav ul,
+.ubuntu-dark .alt-nav ul {
 	background: #fff;
 }
 
@@ -600,7 +636,8 @@ a {
 	padding: 12px 20px;
 }
 
-.dark-mode .alt-nav ul a {
+.ubuntu .alt-nav ul a,
+.ubuntu-dark .alt-nav ul a {
 	color: #000;
 }
 
@@ -608,8 +645,13 @@ a {
 	text-decoration: none;
 }
 
-.alt-nav ul li:hover { background: rgba( 255, 255, 255, 0.2 ); }
-.dark-mode .alt-nav ul li:hover { background: rgba( 0, 0, 0, 0.2 ); }
+.alt-nav ul li:hover {
+    background: rgba( 255, 255, 255, 0.2 );
+}
+.ubuntu .alt-nav ul li:hover,
+.ubuntu-dark .alt-nav ul li:hover  {
+    background: rgba( 0, 0, 0, 0.2 );
+}
 
 .alt-nav li:hover > ul {
 	left: 0;
@@ -634,7 +676,8 @@ a {
 	top: 22px;
 }
 
-.dark-mode .alt-nav ul ul:after {
+.ubuntu .alt-nav ul ul:after,
+.ubuntu-dark .alt-nav ul ul:after {
 	border-color: transparent;
 	border-right-color: #fff;
 }
@@ -700,7 +743,8 @@ a {
 	position: relative;
 }
 
-.dark-mode .preview-image {
+.ubuntu .preview-image,
+.ubuntu-dark .preview-image {
 	background-color: rgba( 255, 255, 255, 0.1 );
 }
 
@@ -873,7 +917,8 @@ a {
 	margin-top: 30px;
 }
 
-.dark-mode .meta {
+.ubuntu .meta,
+.ubuntu-dark .meta {
 	color: rgba( 255, 255, 255, .35 );
 }
 
@@ -891,7 +936,8 @@ a {
 	text-decoration: none;
 }
 
-.dark-mode .meta a:hover {
+.ubuntu .meta a:hover,
+.ubuntu-dark .meta a:hover {
 	border-bottom-color: rgba( 255, 255, 255, .35 );
 }
 
@@ -1005,8 +1051,12 @@ a {
 	text-decoration: none;
 }
 
-.dark-mode .entry-content a { border-bottom-color: rgba( 255, 255, 255, 1 ); }
-.dark-mode .entry-content a:hover {
+.ubuntu .entry-content a,
+.ubuntu-dark .entry-content a {
+    border-bottom-color: rgba( 255, 255, 255, 1 );
+}
+.ubuntu .entry-content a:hover,
+.ubuntu-dark .entry-content a:hover {
 	border-bottom-color: rgba( 255, 255, 255, .5 );
 	color: rgba( 255, 255, 255, .5 );
 }
@@ -1021,7 +1071,8 @@ hr {
 	margin: 50px 0;
 }
 
-.dark-mode hr {
+.ubuntu hr,
+.ubuntu-dark hr {
 	border-top-color: rgba( 255, 255, 255, 0.13 );
 }
 
@@ -1119,7 +1170,8 @@ code {
 	padding: 0 1px;
 }
 
-.dark-mode code {
+.ubuntu code,
+.ubuntu-dark code {
 	background: rgba( 255, 255, 255, 0.2 );
 }
 
@@ -1186,7 +1238,8 @@ blockquote cite:before {
 	color: rgba( 0, 0, 0, .5 );
 }
 
-.dark-mode .wp-caption-text {
+.ubuntu .wp-caption-text,
+.ubuntu-dark .wp-caption-text {
 	color: rgba( 255, 255, 255, .5 );
 }
 
@@ -1322,7 +1375,8 @@ fieldset {
 	padding: 25px;
 }
 
-.dark-mode fieldset {
+.ubuntu fieldset,
+.ubuntu-dark fieldset {
 	border-color: rgba( 255, 255, 255, .3 );
 }
 
@@ -1332,7 +1386,8 @@ fieldset legend {
 	padding: 0 15px;
 }
 
-.dark-mode fieldset legend {
+.ubuntu fieldset legend,
+.ubuntu-dark fieldset legend {
 	color: rgba( 255, 255, 255, .7 );
 }
 
@@ -1374,12 +1429,18 @@ input[type="url"]:focus {
 	outline: none;
 }
 
-.dark-mode textarea,
-.dark-mode input[type="email"],
-.dark-mode input[type="password"],
-.dark-mode input[type="tel"],
-.dark-mode input[type="text"],
-.dark-mode input[type="url"] {
+.ubuntu textarea,
+.ubuntu input[type="email"],
+.ubuntu input[type="password"],
+.ubuntu input[type="tel"],
+.ubuntu input[type="text"],
+.ubuntu input[type="url"],
+.ubuntu-dark textarea,
+.ubuntu-dark input[type="email"],
+.ubuntu-dark input[type="password"],
+.ubuntu-dark input[type="tel"],
+.ubuntu-dark input[type="text"],
+.ubuntu-dark input[type="url"] {
 	border-color: rgba( 255, 255, 255, 0.3 );
 	color: #fff;
 }
@@ -1410,18 +1471,26 @@ input[type="submit"]:hover {
 	cursor: pointer;
 }
 
-.dark-mode button,
-.dark-mode .button,
-.dark-mode input[type="button"],
-.dark-mode input[type="submit"] {
+.ubuntu button,
+.ubuntu .button,
+.ubuntu input[type="button"],
+.ubuntu input[type="submit"],
+.ubuntu-dark button,
+.ubuntu-dark .button,
+.ubuntu-dark input[type="button"],
+.ubuntu-dark input[type="submit"] {
 	background: rgba( 255, 255, 255, .25 );
 	transition: background .2s ease-in-out;
 }
 
-.dark-mode button:hover,
-.dark-mode .button:hover,
-.dark-mode input[type="button"]:hover,
-.dark-mode input[type="submit"]:hover {
+.ubuntu button:hover,
+.ubuntu .button:hover,
+.ubuntu input[type="button"]:hover,
+.ubuntu input[type="submit"]:hover,
+.ubuntu-dark button:hover,
+.ubuntu-dark .button:hover,
+.ubuntu-dark input[type="button"]:hover,
+.ubuntu-dark input[type="submit"]:hover {
 	background: rgba( 255, 255, 255, .3 );
 }
 
@@ -1465,7 +1534,10 @@ th {
 }
 
 tbody > tr:nth-child(odd) { background: rgba( 0, 0, 0, 0.05 ); }
-.dark-mode tbody > tr:nth-child(odd) { background: rgba( 255, 255, 255, 0.1 ); }
+.ubuntu tbody > tr:nth-child(odd),
+.ubuntu-dark tbody > tr:nth-child(odd) {
+    background: rgba( 255, 255, 255, 0.1 );
+}
 
 
 /* -------------------------------------------------------------------------------- */
@@ -1543,7 +1615,8 @@ tbody > tr:nth-child(odd) { background: rgba( 0, 0, 0, 0.05 ); }
 	line-height: 1.25;
 }
 
-.dark-mode .comment-metadata {
+.ubuntu .comment-metadata,
+.ubuntu-dark .comment-metadata {
 	color: rgba( 255, 255, 255, .35 );
 }
 
@@ -1593,7 +1666,8 @@ tbody > tr:nth-child(odd) { background: rgba( 0, 0, 0, 0.05 ); }
 	color: rgba( 0, 0, 0, .35 );
 }
 
-.dark-mode .comments-pagination .page-numbers.dots {
+.ubuntu .comments-pagination .page-numbers.dots,
+.ubuntu-dark .comments-pagination .page-numbers.dots {
 	color: rgba( 255, 255, 255, .35 );
 }
 
@@ -1622,7 +1696,8 @@ tbody > tr:nth-child(odd) { background: rgba( 0, 0, 0, 0.05 ); }
 	margin: 0 0 50px 0;
 }
 
-.dark-mode .comment-respond .logged-in-as {
+.ubuntu .comment-respond .logged-in-as,
+.ubuntu-dark .comment-respond .logged-in-as {
 	color: rgba( 255, 255, 255, .35 );
 }
 
@@ -1687,12 +1762,18 @@ tbody > tr:nth-child(odd) { background: rgba( 0, 0, 0, 0.05 ); }
 	margin-top: 0;
 }
 
-.dark-mode.resume-template .entry-content h1,
-.dark-mode.resume-template .entry-content h2,
-.dark-mode.resume-template .entry-content h3,
-.dark-mode.resume-template .entry-content h4,
-.dark-mode.resume-template .entry-content h5,
-.dark-mode.resume-template .entry-content h6 {
+.ubuntu.resume-template .entry-content h1,
+.ubuntu.resume-template .entry-content h2,
+.ubuntu.resume-template .entry-content h3,
+.ubuntu.resume-template .entry-content h4,
+.ubuntu.resume-template .entry-content h5,
+.ubuntu.resume-template .entry-content h6,
+.ubuntu-dark.resume-template .entry-content h1,
+.ubuntu-dark.resume-template .entry-content h2,
+.ubuntu-dark.resume-template .entry-content h3,
+.ubuntu-dark.resume-template .entry-content h4,
+.ubuntu-dark.resume-template .entry-content h5,
+.ubuntu-dark.resume-template .entry-content h6 {
 	border-top-color: rgba( 255, 255, 255, 0.1 );
 }
 
@@ -1719,7 +1800,8 @@ tbody > tr:nth-child(odd) { background: rgba( 0, 0, 0, 0.05 ); }
 	color: rgba( 0, 0, 0, .35 );
 }
 
-.dark-mode .post-pagination a {
+.ubuntu .post-pagination a,
+.ubuntu-dark .post-pagination a {
 	color: rgba( 255, 255, 255, .35 );
 }
 
@@ -1728,7 +1810,8 @@ tbody > tr:nth-child(odd) { background: rgba( 0, 0, 0, 0.05 ); }
 	text-decoration: none;
 }
 
-.dark-mode .post-pagination a:hover {
+.ubuntu .post-pagination a:hover,
+.ubuntu-dark .post-pagination a:hover {
 	color: #fff;
 }
 
@@ -1780,15 +1863,20 @@ tbody > tr:nth-child(odd) { background: rgba( 0, 0, 0, 0.05 ); }
 	color: #000;
 }
 
-.dark-mode.infinite-scroll #infinite-handle button,
-.dark-mode.infinite-scroll #infinite-handle button:hover,
-.dark-mode.infinite-scroll #infinite-handle button:focus {
+.ubuntu.infinite-scroll #infinite-handle button,
+.ubuntu.infinite-scroll #infinite-handle button:hover,
+.ubuntu.infinite-scroll #infinite-handle button:focus,
+.ubuntu-dark.infinite-scroll #infinite-handle button,
+.ubuntu-dark.infinite-scroll #infinite-handle button:hover,
+.ubuntu-dark.infinite-scroll #infinite-handle button:focus {
 	color: rgba( 255, 255, 255, 0.4 );
 	font-weight: 400;
 }
 
-.dark-mode.infinite-scroll #infinite-handle button:hover,
-.dark-mode.infinite-scroll #infinite-handle button:focus {
+.ubuntu.infinite-scroll #infinite-handle button:hover,
+.ubuntu.infinite-scroll #infinite-handle button:focus,
+.ubuntu-dark.infinite-scroll #infinite-handle button:hover,
+.ubuntu-dark.infinite-scroll #infinite-handle button:focus {
 	color: #fff;
 }
 
@@ -1822,8 +1910,10 @@ tbody > tr:nth-child(odd) { background: rgba( 0, 0, 0, 0.05 ); }
 	width: 100%;
 }
 
-.dark-mode .infinite-loader:before,
-.dark-mode .infinite-loader:after {
+.ubuntu .infinite-loader:before,
+.ubuntu .infinite-loader:after,
+.ubuntu-dark .infinite-loader:before,
+.ubuntu-dark .infinite-loader:after {
 	background: rgba( 255, 255, 255, .25 );
 }
 
@@ -1869,7 +1959,8 @@ tbody > tr:nth-child(odd) { background: rgba( 0, 0, 0, 0.05 ); }
 	font-size: 0.8rem;
 }
 
-.dark-mode .site-footer p + p {
+.ubuntu .site-footer p + p,
+.ubuntu-dark .site-footer p + p {
 	color: rgba( 255, 255, 255, .35 );
 }
 
@@ -1889,7 +1980,8 @@ tbody > tr:nth-child(odd) { background: rgba( 0, 0, 0, 0.05 ); }
 	border-bottom-color: #000;
 }
 
-.dark-mode .site-footer p:first-child a:hover {
+.ubuntu .site-footer p:first-child a:hover,
+.ubuntu-dark .site-footer p:first-child a:hover {
 	border-bottom-color: #fff;
 }
 
@@ -1897,7 +1989,8 @@ tbody > tr:nth-child(odd) { background: rgba( 0, 0, 0, 0.05 ); }
 	border-bottom-color: rgba( 0, 0, 0, .35 );
 }
 
-.dark-mode .site-footer p + p a:hover {
+.ubuntu .site-footer p + p a:hover,
+.ubuntu-dark .site-footer p + p a:hover {
 	border-bottom-color: rgba( 255, 255, 255, .35 );
 }
 
@@ -2415,17 +2508,6 @@ tbody > tr:nth-child(odd) { background: rgba( 0, 0, 0, 0.05 ); }
 .page-header { margin-bottom: 75px; min-height: 200px; }
 
 /**
- * Site description
- */
-.site-description {
-    display: block;
-    font-size: 75%;
-    opacity: 0.8;
-    position: relative;
-    top: 10px;
-}
-
-/**
  * Styles for code snippets generated by Geany
  */
 pre.code-snippet { font-family: Ubuntu Mono, monospace; font-size: 14pt; }
@@ -2632,7 +2714,7 @@ a { transition: all .6s ease-in-out; }
     transition: opacity .3s ease-in-out, transform .3s ease-in-out, left 0s .3s, right 0s .3s;
     z-index: 9999;
 }
-.ubuntu .site-nav { background: #1d1d1d; }
+.ubuntu .site-nav { background: #750743; }
 .ubuntu-dark .site-nav { background: #300a24; }
 .site-nav.active {
     left: 0;
@@ -2695,7 +2777,7 @@ a { transition: all .6s ease-in-out; }
         left: 0;
         right: 0;
 }
-.ubuntu .site-nav footer { background: #d1d1d1; }
+.ubuntu .site-nav footer { background: #750743; }
 .ubuntu-dark .site-nav footer { background: #300a24; }
 .site-nav footer a { color: inherit; text-decoration: none; }
 .site-nav footer p { color: #ffffff; }
@@ -2743,8 +2825,11 @@ a { transition: all .6s ease-in-out; }
 	transition: opacity .3s ease-in-out, transform .3s ease-in-out, left 0s .3s, right 0s .3s;
 	z-index: 9999;
 }
-.dark-mode .ondrejdfirst-wc-ordering {
-	background: #1d1d1d;
+.ubuntu .ondrejdfirst-wc-ordering {
+	background: #750743;
+}
+.ubuntu-dark .ondrejdfirst-wc-ordering {
+    background: #300a24;
 }
 .ondrejdfirst-wc-ordering.active {
 	left: 0;
@@ -2775,7 +2860,8 @@ a { transition: all .6s ease-in-out; }
 	line-height: 1.1;
 	width: 100%;
 }
-.dark-mode .ondrejdfirst-wc-ordering li {
+.ubuntu .ondrejdfirst-wc-ordering li,
+.ubuntu-dark .ondrejdfirst-wc-ordering li {
 	font-weight: 400;
     padding-bottom: 0.25em;
 }
@@ -2790,8 +2876,11 @@ a { transition: all .6s ease-in-out; }
 		left: 0;
 		right: 0;
 }
-.dark-mode .ondrejdfirst-wc-ordering footer {
-	background: #1d1d1d;
+.ubuntu .ondrejdfirst-wc-ordering footer {
+	background: #750743;
+}
+.ubuntu-dark .ondrejdfirst-wc-ordering footer {
+    background: #300a24;
 }
 .ondrejdfirst-wc-ordering footer a {
 	color: inherit;

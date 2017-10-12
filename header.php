@@ -44,15 +44,20 @@ if( ! defined( 'ABSPATH' ) ) {
 				<a href="<?php echo esc_url( home_url() ); ?>" title="<?php bloginfo( 'name' ); ?>" class="custom-logo" style="background-image: url( <?php echo $logo_url; ?> );">
 					<img src="<?php echo $logo_url; ?>" />
 				</a>
-			<?php elseif ( is_singular() ) : ?>
-				<h2 class="site-title">
-					<a href="<?php echo esc_url( home_url() ); ?>" class="site-name"><?php bloginfo( 'name' ); ?></a>
-					<small class="site-description"><?php bloginfo( 'description' ); ?></small>
-				</h2>
 			<?php else : ?>
 				<h2 class="site-title">
-					<a href="<?php echo esc_url( home_url() ); ?>" class="site-name"><?php bloginfo( 'name' ); ?></a>
-					<small class="site-description"><?php bloginfo( 'description' ); ?></small>
+					<a href="<?php echo esc_url( home_url() ); ?>" class="site-name"><?php
+                        bloginfo( 'name' );
+                        if( is_customize_preview() ) :
+                            ondrejdfirst_print_customize_button( 'ondrejdfirst_blogname_customize_btn',  '{name:"blogname"}', __( 'Edit name of the blog', 'ondrejdfirst' ) );
+                        endif;
+                    ?></a>
+					<small class="site-description"><?php
+                        bloginfo( 'description' );
+                        if( is_customize_preview() ) :
+                            ondrejdfirst_print_customize_button( 'ondrejdfirst_blogdescription_customize_btn', '{name:"blogdescription"}', __( 'Edit description of the blog', 'ondrejdfirst' ) );
+                        endif;
+                    ?></small>
 				</h2>
 			<?php endif; ?>
 

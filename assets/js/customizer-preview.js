@@ -8,24 +8,29 @@
 
 ( function( $ ) {
 
+	// Customize buttons click
+	$( document.body ).on( 'click', '.ondrejdfirst-customize-button', function () {
+		wp.customize.preview.send( 'preview-edit', $( this ).data( 'control' ) );
+	} );
+
 	// Site title
-	wp.customize( 'blogname', function( setting ) {
-		setting.bind( function( newval ) {
-			$( '.site-title a.site-name' ).html( newval );
+	wp.customize( 'blogname', function( s ) {
+		s.bind( function( v ) {
+			$( '.site-title a.site-name' ).html( v );
 		} );
 	} );
 
 	// Site description
-	wp.customize( 'blogdescription', function( setting ) {
-		setting.bind( function( newval ) {
-			$( '.site-description' ).html( newval );
+	wp.customize( 'blogdescription', function( s ) {
+		s.bind( function( v ) {
+			$( '.site-description' ).html( v );
 		} );
 	} );
 
 	// Show site description
-	wp.customize( 'ondrejdfirst_site_description', function( setting ) {
-		setting.bind( function( newval ) {
-			if ( newval == true ) {
+	wp.customize( 'ondrejdfirst_site_description', function( s ) {
+		s.bind( function( v ) {
+			if ( v == true ) {
 				$( '.site-description' ).css( 'display', 'block' );
 			} else {
 				$( '.site-description' ).css( 'display', 'none' );
@@ -33,16 +38,20 @@
 		} );
 	} );
 
-	// XXX Color Mode
-	/*wp.customize( 'hamilton_dark_mode', function( setting ) {
-		setting.bind( function( newval ) {
-			if ( newval == true ) {
-				$( 'body' ).addClass( 'dark-mode' );
-			} else {
-				$( 'body' ).removeClass( 'dark-mode' );
+	// Color mode ["white","ubuntu","ubuntu-dark"]
+	wp.customize( 'ondrejdfirst_color_mode', function( s ) {
+		s.bind( function( v ) {
+			if( v != 'white' && v != 'ubuntu' && v != 'ubuntu-dark' ) {
+				v = 'white';
+			}
+
+			$( 'body' ).removeClass( 'ubuntu' ).removeClass( 'ubuntu-dark' );
+
+			if( v != 'white' ) {
+				$( 'body' ).addClass( v );
 			}
 		} );
-	} );*/
+	} );
 
 	// Alt Nav
 	wp.customize( 'ondrejdfirst_alt_nav', function( setting ) {

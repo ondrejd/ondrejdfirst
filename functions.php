@@ -293,6 +293,30 @@ endif;
 
 add_filter( 'get_the_archive_title', 'ondrejdfirst_remove_archive_title_prefix' );
 
+
+if( ! function_exists( 'ondrejdfirst_print_customize_button' ) ) :
+	/**
+	 * Prints customize button.
+	 * @param string $id Value of "id" attribute"
+	 * @param string $control Value of "data-control" attribute.
+	 * @param string $title Value of "aria-label" and "title" attributes.
+	 * @return void
+	 * @since 1.0.0
+	 */
+	function ondrejdfirst_print_customize_button( $id, $control, $title ) {
+?>
+<span id="<?php echo esc_attr( $id ) ?>" class="customize-partial-edit-shortcut">
+    <button class="ondrejdfirst-customize-button customize-partial-edit-shortcut-button" data-control='<?php echo $control ?>' aria-label="<?php echo esc_attr( $title ) ?>" title="<?php echo esc_attr( $title ) ?>">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+            <path d="M13.89 3.39l2.71 2.72c.46.46.42 1.24.03 1.64l-8.01 8.02-5.56 1.16 1.16-5.58s7.6-7.63 7.99-8.03c.39-.39 1.22-.39 1.68.07zm-2.73 2.79l-5.59 5.61 1.11 1.11 5.54-5.65zm-2.97 8.23l5.58-5.6-1.07-1.08-5.59 5.6z"></path>
+        </svg>
+    </button>
+</span>
+<?php
+	}
+endif;
+
+
 /**
  * @var string $tpl_dir
  * @since 1.0.0
@@ -304,3 +328,18 @@ include( "$tpl_dir/OndrejdFirst_Customize.php" );
 include( "$tpl_dir/OndrejdFirst_Login_Customize.php" );
 include( "$tpl_dir/OndrejdFirst_WooCommerce_Customize.php" );
 include( "$tpl_dir/OndrejdFirst_Cookies_Usage_Warning.php" );
+
+
+
+
+
+if( ! function_exists( 'ondrejdfirst_alter_customize_style' ) ) :
+	function ondrejdfirst_alter_customize_style() {
+		$css = '.wp-full-overlay-sidebar { background: #abcdef; width: 400px; }' .
+		       '.wp-full-overlay-sidebar .wp-full-overlay-header, .wp-full-overlay-sidebar .wp-full-overlay-footer { background: #abcdef; }' .
+			   '.wp-full-overlay-sidebar .customize-controls-close { background-color: #abcdef; border-color: #abcdef; }' .
+			   '.wp-full-overlay-sidebar .wp-full-overlay-footer .devices { background: #abcdef; box-shadow: none; -webkit-box-shadow: none; }';
+	    wp_add_inline_style( 'customize-controls', $css );
+	}
+endif;
+add_action( 'customize_controls_enqueue_scripts', 'ondrejdfirst_alter_customize_style' );

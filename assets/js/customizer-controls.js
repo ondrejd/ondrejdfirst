@@ -10,6 +10,20 @@
     wp.customize.bind( 'ready', function() {
         var customize = this;
 
+        customize.previewer.bind( 'preview-edit', function( data ) {
+            console.log( data );
+            var json = JSON.parse( data );
+            console.log( json );
+            var control = customize.control( data.name );
+            control.focus( {
+                completeCallback : function() {
+                    setTimeout( function() {
+                        control.container.addClass( 'shake animated' );
+                    }, 300 );
+                }
+            } );
+        } );
+
         // Hook for "show_on_front" setting to bind toggling disabled property
         // on front page title/description inputs.
         customize( 'show_on_front', function( setting ) {
@@ -31,8 +45,15 @@
                     // 1. On loading.
                     toggle( setting.get() == 'posts' );
                     // 2. On value change.
-                    setting.bind( function( to ) { toggle( to == 'posts' ); } );
+                    setting.bind( function( to ) {
+                        toggle( to == 'posts' );
+                    } );
                 } );
+            } );
+
+            setting.bind( function( to ) {
+                var url = customize.settings.url.home;
+                customize.previewer.previewUrl.set( url );
             } );
         } );
     } );
