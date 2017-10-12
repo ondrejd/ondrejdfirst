@@ -1,0 +1,488 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: ondrejdfirst\n"
+"POT-Creation-Date: 2017-10-12 22:44+0200\n"
+"PO-Revision-Date: 2017-10-12 22:44+0200\n"
+"Last-Translator: \n"
+"Language-Team: Ondřej Doněk <ondrejd@gmail.com>\n"
+"Language: cs_CZ\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.7.1\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_x;esc_html_e;esc_html_attr\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: .git\n"
+"X-Poedit-SearchPathExcluded-1: assets\n"
+"X-Poedit-SearchPathExcluded-2: languages\n"
+
+#: 404.php:20
+msgid "Chyba 404"
+msgstr ""
+
+#: 404.php:21
+msgid ""
+"Stránka, kterou hledáte, nebyla nalezena. To může být způsobeno různými "
+"věcmi - přejmenováním stránky, smazáním nebo dokonce požadovaná stránka "
+"nikdy neexistovala."
+msgstr ""
+
+#: 404.php:23
+msgid "Na úvodní stranu"
+msgstr ""
+
+#: comments.php:17
+msgid "Komentáře"
+msgstr ""
+
+#: comments.php:39
+msgid "Komentáře jsou uzavřeny"
+msgstr ""
+
+#: content.php:39
+msgid "Nálepka"
+msgstr ""
+
+#: footer-content.php:18
+#, php-format
+msgid ""
+"&copy; 2017 <a href=\"%s\">Ondřej Doněk</a>.</p><p>Theme derrived from "
+"<strong>Hamilton</strong> theme by <a href=\"%s\" target=\"_BLANK\">Anders "
+"Norén</a>."
+msgstr ""
+
+#: functions.php:69
+msgid "Primary Menu"
+msgstr ""
+
+#: functions.php:70
+msgid "Social Menu"
+msgstr ""
+
+#: functions.php:265
+msgid "Asides"
+msgstr ""
+
+#: functions.php:267
+msgid "Galleries"
+msgstr ""
+
+#: functions.php:269
+msgid "Images"
+msgstr ""
+
+#: functions.php:271
+msgid "Videos"
+msgstr ""
+
+#: functions.php:273
+msgid "Quotes"
+msgstr ""
+
+#: functions.php:275
+msgid "Links"
+msgstr ""
+
+#: functions.php:277
+msgid "Statuses"
+msgstr ""
+
+#: functions.php:279
+msgid "Audio"
+msgstr ""
+
+#: functions.php:281
+msgid "Chats"
+msgstr ""
+
+#: functions.php:288
+msgid "Archives"
+msgstr ""
+
+#: header.php:52
+msgid "Edit name of the blog"
+msgstr ""
+
+#: header.php:58
+msgid "Edit description of the blog"
+msgstr ""
+
+#: includes/OndrejdFirst_Customize.php:78
+msgid "Color model"
+msgstr ""
+
+#: includes/OndrejdFirst_Customize.php:79
+msgid "Select color model you prefer."
+msgstr ""
+
+#: includes/OndrejdFirst_Customize.php:82
+msgid "White"
+msgstr ""
+
+#: includes/OndrejdFirst_Customize.php:83
+msgid "Ubuntu"
+msgstr ""
+
+#: includes/OndrejdFirst_Customize.php:84
+msgid "Ubuntu Dark"
+msgstr ""
+
+#: includes/OndrejdFirst_Customize.php:122
+msgid "Theme Options"
+msgstr ""
+
+#: includes/OndrejdFirst_Customize.php:125
+msgid "Customize the <strong>OndrejdFirst</strong> theme settings."
+msgstr ""
+
+#: includes/OndrejdFirst_Customize.php:138
+msgid "Show Primary Menu in the Header"
+msgstr ""
+
+#: includes/OndrejdFirst_Customize.php:139
+msgid ""
+"Replace the navigation toggle in the header with the Primary Menu on desktop."
+msgstr ""
+
+#: includes/OndrejdFirst_Customize.php:153
+msgid "Site description"
+msgstr ""
+
+#: includes/OndrejdFirst_Customize.php:154
+msgid "Check if you want to show site description just below the site title."
+msgstr ""
+
+#: includes/OndrejdFirst_Customize.php:167
+msgid "Cookies warning"
+msgstr ""
+
+#: includes/OndrejdFirst_Customize.php:168
+msgid "Check to show cookies warning which is required in some countries."
+msgstr ""
+
+#: includes/OndrejdFirst_Customize.php:182
+msgid "Three Columns"
+msgstr ""
+
+#: includes/OndrejdFirst_Customize.php:183
+msgid "Check to use three columns in the post grid on desktop."
+msgstr ""
+
+#: includes/OndrejdFirst_Customize.php:196
+msgid "Front page title"
+msgstr ""
+
+#: includes/OndrejdFirst_Customize.php:197
+msgid ""
+"The title you want shown on the front page when the \"Front page displays\" "
+"setting is set to \"Your latest posts\" in Settings > Reading."
+msgstr ""
+
+#: includes/OndrejdFirst_Customize.php:211
+msgid "Show front page title"
+msgstr ""
+
+#: includes/OndrejdFirst_Customize.php:224
+msgid "Front page description"
+msgstr ""
+
+#: includes/OndrejdFirst_Customize.php:225
+msgid ""
+"The description below the title on the front page. Unlike title in "
+"description you can use <abbr title=\"Hyper Text Markup Language\">HTML</"
+"abbr> not just text- so be carefull."
+msgstr ""
+
+#: includes/OndrejdFirst_Customize.php:239
+msgid "Show front page description"
+msgstr ""
+
+#: includes/OndrejdFirst_Customize.php:253
+msgid "Blog Page Display"
+msgstr ""
+
+#: includes/OndrejdFirst_Customize.php:256
+msgid "Settings for how to display the <strong>Blog Page</strong>."
+msgstr ""
+
+#: includes/OndrejdFirst_Customize.php:271
+msgid "Show category"
+msgstr ""
+
+#: includes/OndrejdFirst_Customize.php:272
+msgid "Check to show post categories inside the posts previews."
+msgstr ""
+
+#: includes/OndrejdFirst_Customize.php:285
+msgid "Show date"
+msgstr ""
+
+#: includes/OndrejdFirst_Customize.php:286
+msgid "Check to show date and time in posts previews."
+msgstr ""
+
+#: includes/OndrejdFirst_Customize.php:299
+msgid "Show excerpt"
+msgstr ""
+
+#: includes/OndrejdFirst_Customize.php:300
+msgid "Check to show post excerpt inside the posts previews."
+msgstr ""
+
+#: includes/OndrejdFirst_Customize.php:313
+msgid "Show tags"
+msgstr ""
+
+#: includes/OndrejdFirst_Customize.php:314
+msgid "Check to show tags inside the posts previews."
+msgstr ""
+
+#: includes/OndrejdFirst_Customize.php:327
+msgid "Show blog filter"
+msgstr ""
+
+#: includes/OndrejdFirst_Customize.php:328
+msgid ""
+"Check to show filter on <strong>Blog Page</strong> above the grid with posts."
+msgstr ""
+
+#: includes/OndrejdFirst_Customize.php:341
+msgid "Login Page Display"
+msgstr ""
+
+#: includes/OndrejdFirst_Customize.php:344
+msgid ""
+"Settings for how to display the <strong>Login Page</strong> (show <a href=\"#"
+"\" class=\"wp-login-page-link\">Login Page</a>)."
+msgstr ""
+
+#: includes/OndrejdFirst_Customize.php:361
+msgid "Show logo"
+msgstr ""
+
+#: includes/OndrejdFirst_Customize.php:362
+msgid ""
+"Check to show <strong>WordPress</strong> or custom logo above the login form."
+msgstr ""
+
+#: includes/OndrejdFirst_Customize.php:392
+msgid "Shop Page Display"
+msgstr ""
+
+#: includes/OndrejdFirst_Customize.php:395
+msgid ""
+"Settings for how to display <strong>WooCommerce</strong> <em>Shop</em> page."
+msgstr ""
+
+#: includes/OndrejdFirst_Customize.php:416
+msgid "Pages title"
+msgstr ""
+
+#: includes/OndrejdFirst_Customize.php:417
+msgid "Check to show titles on <strong>WooCommerce</strong> pages."
+msgstr ""
+
+#: includes/OndrejdFirst_Customize.php:430
+msgid "Breadcrumbs"
+msgstr ""
+
+#: includes/OndrejdFirst_Customize.php:431
+msgid "Check to show breadcrumbs on <strong>WooCommerce</strong> pages."
+msgstr ""
+
+#: includes/OndrejdFirst_Customize.php:444
+msgid "Result count"
+msgstr ""
+
+#: includes/OndrejdFirst_Customize.php:445
+msgid ""
+"Check to show result count on <strong>WooCommerce</strong> page <em>Shop</"
+"em>."
+msgstr ""
+
+#: includes/OndrejdFirst_Customize.php:458
+msgid "Sidebar"
+msgstr ""
+
+#: includes/OndrejdFirst_Customize.php:459
+msgid ""
+"Check to show sidebar on <strong>WooCommerce</strong> page <em>Shop</em>. "
+"But consider other options because this theme does not use sidebars commonly."
+msgstr ""
+
+#: includes/OndrejdFirst_Customize.php:472
+msgid "Fancy orderby select"
+msgstr ""
+
+#: includes/OndrejdFirst_Customize.php:473
+msgid ""
+"Check to show fancy <em>orderby</em> select on <em>Shop</em> page instead of "
+"the default one (plain <em>select</em> input)."
+msgstr ""
+
+#: includes/OndrejdFirst_Customize.php:486
+msgid "One-page shop"
+msgstr ""
+
+#: includes/OndrejdFirst_Customize.php:487
+msgid ""
+"Check to turn your <em>Shop</em> page with pagination into one page with all "
+"your products (<strong>requires One-Page Shop Plugin</strong>)."
+msgstr ""
+
+#: includes/OndrejdFirst_Customize.php:500
+msgid "Cart Page Display"
+msgstr ""
+
+#: includes/OndrejdFirst_Customize.php:503
+msgid ""
+"Settings for how to display <strong>WooCommerce</strong> <em>Cart</em> page."
+msgstr ""
+
+#: includes/OndrejdFirst_Customize.php:524
+#: includes/OndrejdFirst_Customize.php:562
+msgid "Show coupon"
+msgstr ""
+
+#: includes/OndrejdFirst_Customize.php:525
+#: includes/OndrejdFirst_Customize.php:563
+msgid ""
+"Check to show coupon field on <strong>Cart Page</strong> below the list of "
+"purchased items."
+msgstr ""
+
+#: includes/OndrejdFirst_Customize.php:538
+msgid "Checkout Page Display"
+msgstr ""
+
+#: includes/OndrejdFirst_Customize.php:541
+msgid ""
+"Settings for how to display <strong>WooCommerce</strong> <em>Checkout</em> "
+"page."
+msgstr ""
+
+#: includes/OndrejdFirst_Customize.php:576
+msgid "Shipping choice"
+msgstr ""
+
+#: includes/OndrejdFirst_Customize.php:577
+msgid ""
+"Check to show shipping choice form on <strong>Checkout Page</strong> as "
+"before on <strong>Cart Page</strong> page."
+msgstr ""
+
+#: includes/OndrejdFirst_Customize.php:590
+msgid "Account Page Display"
+msgstr ""
+
+#: includes/OndrejdFirst_Customize.php:593
+#: includes/OndrejdFirst_Customize.php:631
+msgid ""
+"Settings for how to display <strong>WooCommerce</strong> <em>Account</em> "
+"page."
+msgstr ""
+
+#: includes/OndrejdFirst_Customize.php:614
+msgid "Hide Dashboard"
+msgstr ""
+
+#: includes/OndrejdFirst_Customize.php:615
+msgid ""
+"Check to hide <strong>Dashboard</strong> on <strong>Account Page</strong> so "
+"the first pane become <strong>Orders</strong>."
+msgstr ""
+
+#: includes/OndrejdFirst_Customize.php:628
+msgid "Product Page Display"
+msgstr ""
+
+#: includes/OndrejdFirst_Customize.php:652
+msgid "Count input"
+msgstr ""
+
+#: includes/OndrejdFirst_Customize.php:653
+msgid "Check to show product count input on <strong>Product Page</strong>."
+msgstr ""
+
+#: includes/OndrejdFirst_Customize.php:666
+msgid "Categories"
+msgstr ""
+
+#: includes/OndrejdFirst_Customize.php:667
+msgid "Check to show product categories on <strong>Product Page</strong>."
+msgstr ""
+
+#: includes/OndrejdFirst_New_Menu_Customize_Control.php:22
+msgid "Create Menu"
+msgstr ""
+
+#: includes/partials/cookies-usage-warning.php:17
+msgid ""
+"Tato stránka používá cookies za účelem zlepšení uživatelského prostředí. "
+"Podmínky pro uchovávání nebo přístup ke cookies je možné nastavit ve vašem "
+"prohlížeči."
+msgstr ""
+
+#: includes/partials/cookies-usage-warning.php:21
+msgid "Rozumím"
+msgstr ""
+
+#: index.php:37
+#, php-format
+msgid "Vyhledávání: %s"
+msgstr ""
+
+#: index.php:38
+#, php-format
+msgid "Bylo nalezeno odpovídajících výsledků: %s."
+msgstr ""
+
+#: index.php:45
+msgid "Výsledky vyhledávání"
+msgstr ""
+
+#: index.php:46
+#, php-format
+msgid ""
+"Na váš vyhledávací dotaz \"%s\" nebyly nalezeny žádné odpovídající položky."
+msgstr ""
+
+#: pagination.php:18
+msgid "Novější"
+msgstr ""
+
+#: pagination.php:24
+msgid "Starší"
+msgstr ""
+
+#: singular.php:37
+msgid "V"
+msgstr ""
+
+#: singular.php:42
+msgid "Nový komentář"
+msgstr ""
+
+#: singular.php:43
+msgid "1 komentář"
+msgstr ""
+
+#: singular.php:44
+#, php-format
+msgid "%s komentářů"
+msgstr ""
+
+#: singular.php:66
+msgid "Stránky:"
+msgstr ""
+
+#: woocommerce/loop/orderby.php:22
+msgid "Open product orderby menu"
+msgstr ""
+
+#: woocommerce/loop/orderby.php:29
+msgid "Close product orderby menu"
+msgstr ""
