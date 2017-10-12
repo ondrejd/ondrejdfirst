@@ -23,8 +23,6 @@ if( ! class_exists( 'OndrejdFirst_Customize' ) ) :
          * @param WP_Customize_Manager $wp_customize
          * @return void
          * @since 1.0.0
-         * @uses WP_Customize_Manager
-         * @uses WP_Customize_Color_Control
          */
         public static function register( $wp_customize ) {
             // Updates "Static Front Page" section
@@ -34,6 +32,7 @@ if( ! class_exists( 'OndrejdFirst_Customize' ) ) :
             // Make built-in controls use live JS preview
             $wp_customize->get_setting( 'blogname' )->transport = 'postMessage';
             $wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
+            $wp_customize->get_setting( 'show_on_front' )->transport = 'postMessage';
             // Updates "Colors" section
             self::register_section_colors( $wp_customize );
             // Create "Theme Options" section
@@ -670,18 +669,31 @@ if( ! class_exists( 'OndrejdFirst_Customize' ) ) :
         }
 
         /**
-         * @internal Registers our JavaScript the live preview.
+         * @internal Registers our JavaScript for the live preview.
          * @return void
          * @since 1.0.0
-         * @uses get_stylesheet_directory_uri
-         * @uses wp_enqueue_script
          */
-        public static function register_js() {
+        public static function preview_init() {
             wp_enqueue_script(
-                'ondrejdfirst-themecustomizer',
-                get_stylesheet_directory_uri() . '/assets/js/customizer.js',
+                'ondrejdfirst-theme-customizer-preview',
+                get_stylesheet_directory_uri() . '/assets/js/customizer-preview.js',
                 ['jquery', 'customize-preview', 'masonry'],
-                '',
+                null,
+                true
+            );
+        }
+
+        /**
+         * @internal Registers our JavaScript for the customizer controls.
+         * @return void
+         * @since 1.0.0
+         */
+        public static function controls_enqueue_scripts() {
+            wp_enqueue_script(
+                'ondrejdfirst-theme-customizer-controls',
+                get_stylesheet_directory_uri() . '/assets/js/customizer-controls.js',
+                ['customize-controls', 'jquery'],
+                null,
                 true
             );
         }
@@ -742,5 +754,6 @@ endif;
 
 // Register our customizer extension
 add_action( 'customize_register', ['OndrejdFirst_Customize', 'register'], 99 );
-add_action( 'customize_preview_init', ['OndrejdFirst_Customize', 'register_js'] );
+add_action( 'customize_preview_init', ['OndrejdFirst_Customize', 'preview_init'] );
+add_action( 'customize_controls_enqueue_scripts', ['OndrejdFirst_Customize', 'controls_enqueue_scripts'] );
 add_action( 'wp_head' , ['OndrejdFirst_Customize' , 'header_output'] );

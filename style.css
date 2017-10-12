@@ -122,8 +122,13 @@ body.customizer-preview {
 	transition: color .2s ease-in-out, background .2s ease-in-out;
 }
 
-body.dark-mode {
+body.ubuntu {
 	background: #1d1d1d;
+	color: #fff;
+}
+
+body.ubuntu-dark {
+	background: #300a24;
 	color: #fff;
 }
 
@@ -145,7 +150,8 @@ body a {
 	text-decoration: none;
 }
 
-.dark-mode a {
+.ubuntu a,
+.ubuntu-dark a {
 	color: #fff;
 }
 
@@ -212,7 +218,8 @@ a {
 	line-height: 1.35;
 }
 
-.dark-mode .title {
+.ubuntu .title,
+.ubuntu-dark .title {
 	font-weight: 400;
 }
 
@@ -245,12 +252,15 @@ a {
 }
 
 .site-header .site-title a:hover {
-	color: rgba( 0, 0, 0, .35 );
+    color: #000;
+    opacity: .35;
 	text-decoration: none;
 }
 
-.dark-mode .site-header .site-title a:hover {
-	color: rgba( 255, 255, 255, .35 );
+.ubuntu .site-header .site-title a:hover,
+.ubuntu-dark .site-header .site-title a:hover {
+    color: #fff;
+    opacity .35;
 }
 
 .site-header .custom-logo {
@@ -288,7 +298,7 @@ a {
 }
 
 .nav-toggle .bar {
-    background-color: rgba( 33, 42, 52, 1 );
+    background-color: #202A33;
     display: block;
     height: 2px;
 	margin-top: 0;
@@ -306,8 +316,9 @@ a {
 	transition: background-color .2s ease-in-out;
 }
 
-.dark-mode .nav-toggle .bar {
-	background-color: rgba( 255, 255, 255, 1 );
+.ubuntu .nav-toggle .bar,
+.ubuntu-dark .nav-toggle .bar {
+    color: #fff;
 }
 
 .nav-toggle .bar:nth-child(1) { margin-top: -7px; }
@@ -2434,7 +2445,7 @@ pre.code-snippet .style_127 { color: #657b83; }
 .ondrejdfirst-footer-text {
     line-height: 1.45em;
 }
-.dark-mode .ondrejdfirst-footer-text {}
+.ubuntu .ondrejdfirst-footer-text {}
 
 /**
  * Post previews (e.g. Blog)
@@ -2486,7 +2497,7 @@ pre.code-snippet .style_127 { color: #657b83; }
     text-align: left;
 }
 .ubuntu .preview-tags,
-.ubuntu .preview-tags {
+.ubuntu-dark .preview-tags {
     color: #fff;
 }
 .preview-header .preview-tags .preview-tag {}
@@ -2555,7 +2566,9 @@ a { transition: all .6s ease-in-out; }
     margin-left: 0;
 }
 .fp-main-social-menu .menu-item a {
+    color: #202A33;
     font-size: 18px;
+    font-weight: 400;
     padding-left: 32px;
     display: inline-block;
     position: relative;
@@ -2576,6 +2589,10 @@ a { transition: all .6s ease-in-out; }
 }
 .icon-github { background-image: url( "assets/img/github-black.png" ); }
 .icon-linkedin { background-image: url( "assets/img/linkedin-black.png" ); }
+.ubuntu .icon-github { background-image: url( "assets/img/github.png" ); }
+.ubuntu-dark .icon-github { background-image: url( "assets/img/github.png" ); }
+.ubuntu .icon-linkedin { background-image: url( "assets/img/linkedin.png" ); }
+.ubuntu-dark .icon-linkedin { background-image: url( "assets/img/linkedin.png" ); }
 
 /**
  * Filtry nad vypisem prispevku
@@ -2615,8 +2632,8 @@ a { transition: all .6s ease-in-out; }
     transition: opacity .3s ease-in-out, transform .3s ease-in-out, left 0s .3s, right 0s .3s;
     z-index: 9999;
 }
-
-.dark-mode .site-nav { background: #1d1d1d; }
+.ubuntu .site-nav { background: #1d1d1d; }
+.ubuntu-dark .site-nav { background: #300a24; }
 .site-nav.active {
     left: 0;
     right: 0;
@@ -2642,26 +2659,32 @@ a { transition: all .6s ease-in-out; }
     line-height: 1.1;
     width: 100%;
 }
-.dark-mode .site-nav li { font-weight: 400; }
+.ubuntu .site-nav li { font-weight: 400; }
+.ubuntu-dark .site-nav li { font-weight: 400; }
 .site-nav li + li { margin-top: 20px; }
 .site-nav ul a { border-bottom: 0.25em solid transparent; }
 .site-nav ul + ul a { color: inherit; }
-.dark-mode .site-nav ul + ul a { color: inherit; }
+.ubuntu .site-nav ul + ul a { color: inherit; }
+.ubuntu-dark .site-nav ul + ul a { color: inherit; }
 .site-nav ul a:hover { text-decoration: none; }
 .site-nav ul:first-child a:hover,
 .site-nav ul:first-child .current-menu-item > a {
     border-bottom-color: transparent;
 }
-.dark-mode .site-nav ul:first-child a:hover,
-.dark-mode .site-nav ul:first-child .current-menu-item > a {
+.ubuntu .site-nav ul:first-child a:hover,
+.ubuntu .site-nav ul:first-child .current-menu-item > a,
+.ubuntu-dark .site-nav ul:first-child a:hover,
+.ubuntu-dark .site-nav ul:first-child .current-menu-item > a {
     border-bottom-color: transparent;
 }
 .site-nav ul:last-child a:hover,
 .site-nav ul:last-child .current-menu-item > a {
     border-bottom-color: transparent;
 }
-.dark-mode .site-nav ul:last-child a:hover,
-.dark-mode .site-nav ul:last-child .current-menu-item > a {
+.ubuntu .site-nav ul:last-child a:hover,
+.ubuntu .site-nav ul:last-child .current-menu-item > a,
+.ubuntu-dark .site-nav ul:last-child a:hover,
+.ubuntu-dark .site-nav ul:last-child .current-menu-item > a {
     border-bottom-color: transparent;
 }
 .site-nav footer {
@@ -2672,12 +2695,14 @@ a { transition: all .6s ease-in-out; }
         left: 0;
         right: 0;
 }
-.dark-mode .site-nav footer { background: #1d1d1d; }
+.ubuntu .site-nav footer { background: #d1d1d1; }
+.ubuntu-dark .site-nav footer { background: #300a24; }
 .site-nav footer a { color: inherit; text-decoration: none; }
 .site-nav footer p { color: #ffffff; }
 .site-nav footer p:first-child { float: none; }
 .site-nav footer p:last-child { float: none; }
-.dark-mode .site-nav footer p:last-child { color: #ffffff; }
+.ubuntu .site-nav footer p:last-child { color: #ffffff; }
+.ubuntu-dark .site-nav footer p:last-child { color: #ffffff; }
 
 
 /**
@@ -2706,7 +2731,7 @@ a { transition: all .6s ease-in-out; }
 #ondrejdfirst-ordering .dashicons {}
 .ondrejdfirst-wc-ordering .dashicons {}
 .ondrejdfirst-wc-ordering {
-	background: #fff;
+	background: #ffffff;
 	opacity: 0;
 	padding: 222px 0 120px;
 	position: fixed;
