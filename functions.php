@@ -173,7 +173,7 @@ if( ! function_exists( 'ondrejdfirst_body_classes' ) ) :
 		}
 
 		// Set color mode
-		$color_mode = get_theme_mod( 'ondrejdifrst_color_mode' );
+		$color_mode = get_theme_mod( 'ondrejdfirst_color_mode' );
 		if( $color_mode == 'ubuntu' ) {
 			$classes[] = 'ubuntu';
 		}
