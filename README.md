@@ -5,9 +5,10 @@ Clean responsive theme for my [personal site][2] built on [WordPress][1]. Is der
 ## Main features
 
 * clean responsive theme,
-* three color profiles: __White__~~, __Ubuntu__ and __Ubuntu Dark__~~,
-* highly customizable using __Theme Customizer__,
+* three color profiles: __White__, __Ubuntu__ and __Ubuntu Dark__,
+* highly customizable through the __Theme Customizer__,
 * heavy [WooCommerce][4] support,
+* support for `wp-login.php` page,
 * Czech ~~and English~~ localization.
 
 ## Screenshots
@@ -21,6 +22,7 @@ Clean responsive theme for my [personal site][2] built on [WordPress][1]. Is der
 * [ ] __Finish color profiles__,
 * [ ] create more screenshots (different color modes, WooCommerce),
 * [ ] create screencast how much is theme customizable (just record session in __Theme Customizer__),
+* [ ] support for `wp-login.php` page
 * [ ] Add English locales.
 
 [1]:https://wordpress.org/
