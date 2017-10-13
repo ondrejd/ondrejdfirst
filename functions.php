@@ -328,18 +328,3 @@ include( "$tpl_dir/OndrejdFirst_Customize.php" );
 include( "$tpl_dir/OndrejdFirst_Login_Customize.php" );
 include( "$tpl_dir/OndrejdFirst_WooCommerce_Customize.php" );
 include( "$tpl_dir/OndrejdFirst_Cookies_Usage_Warning.php" );
-
-
-
-
-
-if( ! function_exists( 'ondrejdfirst_alter_customize_style' ) ) :
-	function ondrejdfirst_alter_customize_style() {
-		$css = '.wp-full-overlay-sidebar { background: #abcdef; width: 400px; }' .
-		       '.wp-full-overlay-sidebar .wp-full-overlay-header, .wp-full-overlay-sidebar .wp-full-overlay-footer { background: #abcdef; }' .
-			   '.wp-full-overlay-sidebar .customize-controls-close { background-color: #abcdef; border-color: #abcdef; }' .
-			   '.wp-full-overlay-sidebar .wp-full-overlay-footer .devices { background: #abcdef; box-shadow: none; -webkit-box-shadow: none; }';
-	    wp_add_inline_style( 'customize-controls', $css );
-	}
-endif;
-add_action( 'customize_controls_enqueue_scripts', 'ondrejdfirst_alter_customize_style' );
