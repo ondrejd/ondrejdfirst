@@ -17,13 +17,18 @@ Clean responsive theme for my [personal site][2] built on [WordPress][1]. Is der
 
 ## TODO
 
-* [ ] __FIXME__: When changing setting `show_on_front` _previewer_ is not updated,
-* [ ] __FIXME__: Customize buttons for `blogname` and `blogdescription` do not work,
-* [ ] __Finish color profiles__,
 * [ ] create more screenshots (different color modes, WooCommerce),
 * [ ] create screencast how much is theme customizable (just record session in __Theme Customizer__),
-* [ ] support for `wp-login.php` page
-* [ ] Add English locales.
+* [ ] support for `wp-login.php` page,
+* [ ] go through __Theme Customizer__ and test everything,
+* [ ] add English locales,
+* [ ] __FIXME__: when changing setting `show_on_front` the _Previewer_ is not updated,
+* [ ] __FIXME__: customize buttons for `blogname` and `blogdescription` do not work,
+* [ ] __FIXME__: when `ondrejdfirst_alt_nav` is checked then the main menu should have edit button in the
+ _Previewer_,
+* [ ] __FIXME__: all settings in Customizer's section __Blog Page Display__ are not working,
+* [ ] __FIXME__: finish color profiles (for example _cookies usage warning_ is not customized),
+* [ ] __FIXME__: below the _cookies usage warning_ is thin margin - remove it.
 
 [1]:https://wordpress.org/
 [2]:https://ondrejd.com/

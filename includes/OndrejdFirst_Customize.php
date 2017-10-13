@@ -19,116 +19,66 @@ if( ! class_exists( 'OndrejdFirst_Customize' ) ) :
     class OndrejdFirst_Customize {
         /**
          * Registers our customizations.
-         * @link https://developer.wordpress.org/themes/customize-api/customizer-objects/
          * @param WP_Customize_Manager $wp_customize
          * @return void
          * @since 1.0.0
          */
         public static function register( $wp_customize ) {
-            // Updates "Static Front Page" section
-            $wp_customize->get_section( 'static_front_page' )->active_callback = function() {
-                return ( is_front_page() );
-            };
-            // Make built-in controls use live JS preview
+            // Enable built-in settings in live JS preview
             $wp_customize->get_setting( 'blogname' )->transport = 'postMessage';
             $wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
             $wp_customize->get_setting( 'show_on_front' )->transport = 'postMessage';
+
+            // Create our UI
+            self::register_structure( $wp_customize );
+        }
+
+        /**
+         * Creates our Customizer UI.
+         * @param WP_Customize_Manager $wp_customize
+         * @return void
+         * @since 1.0.0
+         */
+        private static function register_structure( $wp_customize ) {
+            // Main panel
+            $wp_customize->add_panel( 'ondrejdfirst_panel', [
+                'description'        => __( 'Options for <strong>OndrejdFirst</strong> theme. They are separated into the sections that corresponds with target <strong>WordPress</strong> or <strong>WooCommerce</strong> pages and one extra <em>General</em> section.', 'ondrejdfirst' ),
+                'description_hidden' => true,
+                'priority'           => 160,
+                'title'              => __( 'Theme Options', 'ondrejdfirst' ),
+            ] );
+            // Create "General" section
+            self::register_section_general( $wp_customize );
             // Updates "Colors" section
             self::register_section_colors( $wp_customize );
-            // Create "Theme Options" section
-            self::register_section_theme_options( $wp_customize );
             // Create "Blog Page Display" section
             self::register_section_blog_page_display( $wp_customize );
             // Create "Login Page Display" section
             self::register_section_login_page_display( $wp_customize );
-            // Create "WooCommerce" section
+            // Create WooCommerce sections
             self::register_woocommerce_support( $wp_customize );
         }
 
         /**
-         * @internal Updates "Colors" section in Theme Customizer.
-         * @param WP_Customize_Manager $wp_customize
-         * @return void
-         * @since 1.0.0
-         * @todo Udělat tři profily, první světlý (...|...|...|...),
-         *       druhý světle fialový (#750743|#44002a|#ffffff|#e77243),
-         *       třetí tmavě fialový (#300a24|#44002a|...|...);
-         *       dle zvoleného profilu nastavit i zvolené barvy
-         *       (včetně defaultních hodnot). Původní "Hamilton's Dark Mode"
-         *       úplně zrušit.
-         */
-        private static function register_section_colors( $wp_customize ) {
-            $wp_customize->remove_control( 'background_color' );
-
-            // Color mode
-            $wp_customize->add_setting( 'ondrejdfirst_color_mode', [
-                'capability' 		=> 'edit_theme_options',
-                'default'           => 'white',
-                'transport'         => 'postMessage'/*,
-                'sanitize_callback' => function ( $value ) {
-                    if( ! in_array( $value, ['white','ubuntu','ubuntu-dark'] ) ) {
-                        return 'white';
-                    }
-                    return $value;
-                },*/
-            ] );
-            $wp_customize->add_control( 'ondrejdfirst_color_mode', [
-                'type'        => 'radio',
-                'section'     => 'colors',
-                'label'       => __( 'Color model', 'ondrejdfirst' ),
-                'description' => __( 'Select color model you prefer.', 'ondrejdfirst' ),
-                'priority'    => 11,
-                'choices'     => [
-                    'white'       => __( 'White', 'ondrejdfirst' ),
-                    'ubuntu'      => __( 'Ubuntu', 'ondrejdfirst' ),
-                    'ubuntu-dark' => __( 'Ubuntu Dark', 'ondrejdfirst' ),
-                ],
-            ] );
-
-            /*include( get_template_directory() . '/includes/OndrejdFirst_ColorMode_Customize_Control.php' );
-            include( get_template_directory() . '/includes/OndrejdFirst_New_Menu_Customize_Control.php' );
-            $wp_customize->add_control( new OndrejdFirst_ColorMode_Customize_Control(
-                $wp_customize, 'ondrejdfirst_color_mode2', [
-                    'setting' => 'ondrejdfirst_color_mode',
-                    'section'     => 'colors',
-                    'label'       => __( 'Color model', 'ondrejdfirst' ),
-                    'description' => __( 'Select color model you prefer.', 'ondrejdfirst' ),
-                    'priority'    => 11,
-                    'choices'     => [
-                        'white'       => __( 'White', 'ondrejdfirst' ),
-                        'ubuntu'      => __( 'Ubuntu', 'ondrejdfirst' ),
-                        'ubuntu-dark' => __( 'Ubuntu Dark', 'ondrejdfirst' ),
-                    ],
-                ]
-            ) );
-            $wp_customize->add_control( new OndrejdFirst_New_Menu_Customize_Control(
-                $wp_customize, 'ondrejdfirst_color_mode3', [
-                    'setting'     => 'ondrejdfirst_color_mode',
-                    'section'     => 'colors',
-                    'label'       => __( 'XXX', 'ondrejdfirst' ),
-                    'description' => __( 'Description of XXX', 'ondrejdfirst' ),
-                ]
-            ) );*/
-        }
-
-        /**
-         * @internal Updates "Theme Options" section in Theme Customizer.
+         * @internal Section "Theme Options > General".
          * @param WP_Customize_Manager $wp_customize
          * @return void
          * @since 1.0.0
          */
-        private static function register_section_theme_options( $wp_customize ) {
+        private static function register_section_general( $wp_customize ) {
             $wp_customize->add_section( 'ondrejdfirst_options', [
-                'title'              => __( 'Theme Options', 'ondrejdfirst' ),
-                'priority'           => 35,
                 'capability'         => 'edit_theme_options',
-                'description'        => __( 'Customize the <strong>OndrejdFirst</strong> theme settings.', 'ondrejdfirst' ),
+                'description'        => __( 'General <strong>OndrejdFirst</strong> theme settings.', 'ondrejdfirst' ),
                 'description_hidden' => true,
+                'title'              => __( 'General', 'ondrejdfirst' ),
+                'panel'              => 'ondrejdfirst_panel',
+                'priority'           => 10,
             ] );
 
             // Always show preview titles
             $wp_customize->add_setting( 'ondrejdfirst_alt_nav', [
                 'capability' 		=> 'edit_theme_options',
+                'default'           => true,
                 'sanitize_callback' => [__CLASS__, 'sanitize_checkbox'],
                 'transport'			=> 'postMessage',
             ] );
@@ -143,7 +93,7 @@ if( ! class_exists( 'OndrejdFirst_Customize' ) ) :
             // Site description
             $wp_customize->add_setting( 'ondrejdfirst_site_description', [
                 'capability' 		=> 'edit_theme_options',
-                'default'           => false,
+                'default'           => true,
                 'sanitize_callback' => [__CLASS__, 'sanitize_checkbox'],
                 'transport'         => 'postMessage',
             ] );
@@ -242,6 +192,84 @@ if( ! class_exists( 'OndrejdFirst_Customize' ) ) :
         }
 
         /**
+         * @internal Updates "Colors" section in Theme Customizer.
+         * @param WP_Customize_Manager $wp_customize
+         * @return void
+         * @since 1.0.0
+         * @todo Udělat tři profily, první světlý (...|...|...|...),
+         *       druhý světle fialový (#750743|#44002a|#ffffff|#e77243),
+         *       třetí tmavě fialový (#300a24|#1e0516|...|...);
+         *       dle zvoleného profilu nastavit i zvolené barvy
+         *       (včetně defaultních hodnot). Původní "Hamilton's Dark Mode"
+         *       úplně zrušit.
+         */
+        private static function register_section_colors( $wp_customize ) {
+            // Remove WP original "Colors" section
+            $wp_customize->remove_section( 'colors' );
+            $wp_customize->remove_control( 'background_color' );
+
+            // Creates our new "Colors" section
+            $wp_customize->add_section( 'ondrejdfirst_colors', [
+                'capability'         => 'edit_theme_options',
+                'description'        => __( 'Set up used color mode.', 'ondrejdfirst' ),
+                'description_hidden' => true,
+                'title'              => __( 'Color mode', 'ondrejdfirst' ),
+                'panel'              => 'ondrejdfirst_panel',
+                'priority'           => 20,
+            ] );
+
+            // Color mode
+            $wp_customize->add_setting( 'ondrejdfirst_color_mode', [
+                'capability' 		=> 'edit_theme_options',
+                'default'           => 'white',
+                'transport'         => 'postMessage'/*,
+                'sanitize_callback' => function ( $value ) {
+                    if( ! in_array( $value, ['white','ubuntu','ubuntu-dark'] ) ) {
+                        return 'white';
+                    }
+                    return $value;
+                },*/
+            ] );
+            $wp_customize->add_control( 'ondrejdfirst_color_mode', [
+                'type'        => 'radio',
+                'section'     => 'ondrejdfirst_colors',
+                'label'       => __( 'Color model', 'ondrejdfirst' ),
+                'description' => __( 'Select color model you prefer.', 'ondrejdfirst' ),
+                'priority'    => 11,
+                'choices'     => [
+                    'white'       => __( 'White', 'ondrejdfirst' ),
+                    'ubuntu'      => __( 'Ubuntu', 'ondrejdfirst' ),
+                    'ubuntu-dark' => __( 'Ubuntu Dark', 'ondrejdfirst' ),
+                ],
+            ] );
+
+            /*include( get_template_directory() . '/includes/OndrejdFirst_ColorMode_Customize_Control.php' );
+            include( get_template_directory() . '/includes/OndrejdFirst_New_Menu_Customize_Control.php' );
+            $wp_customize->add_control( new OndrejdFirst_ColorMode_Customize_Control(
+                $wp_customize, 'ondrejdfirst_color_mode2', [
+                    'setting' => 'ondrejdfirst_color_mode',
+                    'section'     => 'ondrejdfirst_colors',
+                    'label'       => __( 'Color model', 'ondrejdfirst' ),
+                    'description' => __( 'Select color model you prefer.', 'ondrejdfirst' ),
+                    'priority'    => 11,
+                    'choices'     => [
+                        'white'       => __( 'White', 'ondrejdfirst' ),
+                        'ubuntu'      => __( 'Ubuntu', 'ondrejdfirst' ),
+                        'ubuntu-dark' => __( 'Ubuntu Dark', 'ondrejdfirst' ),
+                    ],
+                ]
+            ) );
+            $wp_customize->add_control( new OndrejdFirst_New_Menu_Customize_Control(
+                $wp_customize, 'ondrejdfirst_color_mode3', [
+                    'setting'     => 'ondrejdfirst_color_mode',
+                    'section'     => 'ondrejdfirst_colors',
+                    'label'       => __( 'XXX', 'ondrejdfirst' ),
+                    'description' => __( 'Description of XXX', 'ondrejdfirst' ),
+                ]
+            ) );*/
+        }
+
+        /**
          * @internal Creates "Blog Page Display" section in Theme Customizer.
          * @param WP_Customize_Manager $wp_customize
          * @return void
@@ -250,12 +278,27 @@ if( ! class_exists( 'OndrejdFirst_Customize' ) ) :
         private static function register_section_blog_page_display( $wp_customize ) {
             // Add section self
             $wp_customize->add_section(	'ondrejdfirst_blog_page_display', [
-                'title'              => __( 'Blog Page Display', 'ondrejdfirst' ),
-                'priority'           => 120,
+                //'active_callback'    => function() { return ( is_home() && ! is_front_page() ); },
                 'capability'         => 'edit_theme_options',
                 'description'        => __( 'Settings for how to display the <strong>Blog Page</strong>.', 'ondrejdfirst' ),
                 'description_hidden' => true,
-                'active_callback'    => function() { return ( is_home() && ! is_front_page() ); },
+                'panel'              => 'ondrejdfirst_panel',
+                'priority'           => 30,
+                'title'              => __( 'Blog Page Display', 'ondrejdfirst' ),
+            ] );
+
+            // Preview content: show thumbnail
+            $wp_customize->add_setting( 'ondrejdfirst_preview_show_thumbnail', [
+                'default'           => false,
+                'capability' 		=> 'edit_theme_options',
+                'sanitize_callback' => [__CLASS__, 'sanitize_checkbox'],
+                'transport'			=> 'postMessage'
+            ] );
+            $wp_customize->add_control( 'ondrejdfirst_preview_show_thumbnail', [
+                'type'        => 'checkbox',
+                'section'     => 'ondrejdfirst_blog_page_display',
+                'label'       => __( 'Show thumbnail', 'ondrejdfirst' ),
+                'description' => __( 'Check to show post thumbnails in background of the posts previews.', 'ondrejdfirst' ),
             ] );
 
             // Preview content: show categories
@@ -338,14 +381,28 @@ if( ! class_exists( 'OndrejdFirst_Customize' ) ) :
         private static function register_section_login_page_display( $wp_customize ) {
             // Add section self
             $wp_customize->add_section(	'ondrejdfirst_login_page', [
-                'title'              => __( 'Login Page Display', 'ondrejdfirst' ),
-                'priority'           => 125,
+                /*'active_callback'    => function() {
+                    return ( filter_input( INPUT_GET, 'url' ) ==  get_bloginfo( 'url' ) .'/wp-login.php' );
+                },*/
                 'capability'         => 'edit_theme_options',
                 'description'        => __( 'Settings for how to display the <strong>Login Page</strong> (show <a href="#" class="wp-login-page-link">Login Page</a>).', 'ondrejdfirst' ),
                 'description_hidden' => true,
-                'active_callback'    => function() {
-                    return ( filter_input( INPUT_GET, 'url' ) ==  get_bloginfo( 'url' ) .'/wp-login.php' );
-                },
+                'panel'              => 'ondrejdfirst_panel',
+                'priority'           => 40,
+                'title'              => __( 'Login Page Display', 'ondrejdfirst' ),
+            ] );
+
+            // Login page section
+            $wp_customize->add_setting( 'ondrejdfirst_login_enable', [
+                'capability' 		=> 'edit_theme_options',
+                'sanitize_callback' => [__CLASS__, 'sanitize_checkbox'],
+                'transport'			=> 'postMessage',
+            ] );
+            $wp_customize->add_control( 'ondrejdfirst_login_enable', [
+                'type' 			=> 'checkbox',
+                'section' 		=> 'ondrejdfirst_login',
+                'label' 		=> __( 'Enable custom theme', 'ondrejdfirst' ),
+                'description' 	=> __( 'Check to enable our custom theme on the <strong>WordPress</strong> login page.', 'ondrejdfirst' ),
             ] );
 
             // Show WordPress logo
@@ -389,18 +446,19 @@ if( ! class_exists( 'OndrejdFirst_Customize' ) ) :
         private static function register_section_woocommerce_shop( $wp_customize ) {
             // Add section self
             $wp_customize->add_section(	'ondrejdfirst_woocommerce_shop', [
-                'title'              => __( 'Shop Page Display', 'ondrejdfirst' ),
-                'priority'           => 130,
-                'capability'         => 'edit_theme_options',
-                'description'        => __( 'Settings for how to display <strong>WooCommerce</strong> <em>Shop</em> page.', 'ondrejdfirst' ),
-                'description_hidden' => true,
-                'active_callback'    => function() {
+                /*'active_callback'    => function() {
                     if( function_exists( 'is_shop' ) ) {
                         return is_shop();
                     } else {
                         return false;
                     }
-                },
+                },*/
+                'capability'         => 'edit_theme_options',
+                'description'        => __( 'Settings for how to display <strong>WooCommerce</strong> <em>Shop</em> page.', 'ondrejdfirst' ),
+                'description_hidden' => true,
+                'panel'              => 'ondrejdfirst_panel',
+                'priority'           => 50,
+                'title'              => __( 'Shop Page Display', 'ondrejdfirst' ),
             ] );
 
             // Show shop pages title
@@ -497,18 +555,19 @@ if( ! class_exists( 'OndrejdFirst_Customize' ) ) :
         private static function register_section_woocommerce_cart( $wp_customize ) {
             // Add section self
             $wp_customize->add_section(	'ondrejdfirst_woocommerce_cart', [
-                'title'              => __( 'Cart Page Display', 'ondrejdfirst' ),
-                'priority'           => 131,
-                'capability'         => 'edit_theme_options',
-                'description'        => __( 'Settings for how to display <strong>WooCommerce</strong> <em>Cart</em> page.', 'ondrejdfirst' ),
-                'description_hidden' => true,
-                'active_callback'    => function() {
+                /*'active_callback'    => function() {
                     if( function_exists( 'is_cart' ) ) {
                         return is_cart();
                     } else {
                         return false;
                     }
-                },
+                },*/
+                'capability'         => 'edit_theme_options',
+                'description'        => __( 'Settings for how to display <strong>WooCommerce</strong> <em>Cart</em> page.', 'ondrejdfirst' ),
+                'description_hidden' => true,
+                'panel'              => 'ondrejdfirst_panel',
+                'priority'           => 52,
+                'title'              => __( 'Cart Page Display', 'ondrejdfirst' ),
             ] );
 
             // Show coupon
@@ -535,18 +594,19 @@ if( ! class_exists( 'OndrejdFirst_Customize' ) ) :
         private static function register_section_woocommerce_checkout( $wp_customize ) {
             // Add section self
             $wp_customize->add_section(	'ondrejdfirst_woocommerce_checkout', [
-                'title'              => __( 'Checkout Page Display', 'ondrejdfirst' ),
-                'priority'           => 132,
-                'capability'         => 'edit_theme_options',
-                'description'        => __( 'Settings for how to display <strong>WooCommerce</strong> <em>Checkout</em> page.', 'ondrejdfirst' ),
-                'description_hidden' => true,
-                'active_callback'    => function() {
+                /*'active_callback'    => function() {
                     if( function_exists( 'is_checkout' ) ) {
                         return is_checkout();
                     } else {
                         return false;
                     }
-                },
+                },*/
+                'capability'         => 'edit_theme_options',
+                'description'        => __( 'Settings for how to display <strong>WooCommerce</strong> <em>Checkout</em> page.', 'ondrejdfirst' ),
+                'description_hidden' => true,
+                'panel'              => 'ondrejdfirst_panel',
+                'priority'           => 53,
+                'title'              => __( 'Checkout Page Display', 'ondrejdfirst' ),
             ] );
 
             // Show coupon
@@ -587,18 +647,19 @@ if( ! class_exists( 'OndrejdFirst_Customize' ) ) :
         private static function register_section_woocommerce_account( $wp_customize ) {
             // Add section self
             $wp_customize->add_section(	'ondrejdfirst_woocommerce_account', [
-                'title'              => __( 'Account Page Display', 'ondrejdfirst' ),
-                'priority'           => 130,
-                'capability'         => 'edit_theme_options',
-                'description'        => __( 'Settings for how to display <strong>WooCommerce</strong> <em>Account</em> page.', 'ondrejdfirst' ),
-                'description_hidden' => true,
-                'active_callback'    => function() {
+                /*'active_callback'    => function() {
                     if( function_exists( 'is_account_page' ) ) {
                         return is_account_page();
                     } else {
                         return false;
                     }
-                },
+                },*/
+                'capability'         => 'edit_theme_options',
+                'description'        => __( 'Settings for how to display <strong>WooCommerce</strong> <em>Account</em> page.', 'ondrejdfirst' ),
+                'description_hidden' => true,
+                'panel'              => 'ondrejdfirst_panel',
+                'priority'           => 54,
+                'title'              => __( 'Account Page Display', 'ondrejdfirst' ),
             ] );
 
             // Hide dashboard
@@ -625,18 +686,19 @@ if( ! class_exists( 'OndrejdFirst_Customize' ) ) :
         private static function register_section_woocommerce_product( $wp_customize ) {
             // Add section self
             $wp_customize->add_section(	'ondrejdfirst_woocommerce_product', [
-                'title'              => __( 'Product Page Display', 'ondrejdfirst' ),
-                'priority'           => 130,
-                'capability'         => 'edit_theme_options',
-                'description'        => __( 'Settings for how to display <strong>WooCommerce</strong> <em>Account</em> page.', 'ondrejdfirst' ),
-                'description_hidden' => true,
-                'active_callback'    => function() {
+                /*'active_callback'    => function() {
                     if( function_exists( 'is_product' ) ) {
                         return is_product();
                     } else {
                         return false;
                     }
-                },
+                },*/
+                'capability'         => 'edit_theme_options',
+                'description'        => __( 'Settings for how to display <strong>WooCommerce</strong> <em>Account</em> page.', 'ondrejdfirst' ),
+                'description_hidden' => true,
+                'panel'              => 'ondrejdfirst_panel',
+                'priority'           => 51,
+                'title'              => __( 'Product Page Display', 'ondrejdfirst' ),
             ] );
 
             // Hide count input

@@ -24,6 +24,13 @@
             } );
         } );
 
+        // Preview Content: Thumbnail
+        customize( 'ondrejdfirst_preview_show_thumbnail', function( setting ) {
+            setting.bind( function( newval ) {
+                customize.previewer.refresh();
+            } );
+        } );
+
         // Hook for "show_on_front" setting to bind toggling disabled property
         // on front page title/description inputs.
         customize( 'show_on_front', function( setting ) {

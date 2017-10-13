@@ -738,15 +738,13 @@ a {
 }
 
 .preview-image {
-	background: rgba( 0, 0, 0, 0.1 ) no-repeat center;
+    background: #e2e2e2 no-repeat center;
 	background-size: cover;
 	position: relative;
 }
 
-.ubuntu .preview-image,
-.ubuntu-dark .preview-image {
-	background-color: rgba( 255, 255, 255, 0.1 );
-}
+.ubuntu .preview-image { background-color: #44002a; }
+.ubuntu-dark .preview-image { background-color: #1e0516; }
 
 .post-preview.fallback-image .preview-image:before {
 	content: "";
@@ -787,7 +785,7 @@ a {
 		-webkit-box-pack: center;
 		-ms-flex-pack: center;
 	justify-content: center;
-	opacity: 0;
+	opacity: 0.2;
 	overflow: hidden;
 	position: absolute;
 		bottom: 40px;
@@ -2533,24 +2531,6 @@ pre.code-snippet .style_127 { color: #657b83; }
 /**
  * Post previews (e.g. Blog)
  */
-.post-preview, .post-preview.none, .preview-image, .preview-header {
-    opacity: none;
-    transform: none;
-    transition: none;
-}
-.post-preview {}
-.post-preview.spotted {}
-.preview-image {}
-.preview-header { margin: 0; }
-.preview-header h2 {
-    color: #000;
-    padding: 25px 0;
-    text-align: left;
-}
-.ubuntu .preview-header h2,
-.ubuntu-dark .preview-header h2 {
-    color: #fff;
-}
 .preview-header .preview-excerpt {}
 .preview-header .preview-excerpt p {
     font-size: 0.9em;

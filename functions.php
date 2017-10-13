@@ -196,6 +196,11 @@ if( ! function_exists( 'ondrejdfirst_body_classes' ) ) :
 			$classes[] = 'show-cookies-usage-warning';
 		}
 
+		// Posts thumbnails
+		if( get_theme_mod( 'ondrejdfirst_preview_show_thumbnail' ) ) {
+			$classes[] = 'posts-show-thumbnails';
+		}
+
 		// Add short class to body if resumé page template
 		if( is_page_template( 'resume-page-template.php' ) ) {
 			$classes[] = 'resume-template';

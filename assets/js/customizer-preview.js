@@ -14,23 +14,23 @@
 	} );
 
 	// Site title
-	wp.customize( 'blogname', function( s ) {
-		s.bind( function( v ) {
-			$( '.site-title a.site-name' ).html( v );
+	wp.customize( 'blogname', function( setting ) {
+		setting.bind( function( newval ) {
+			$( '.site-title a.site-name' ).html( newval );
 		} );
 	} );
 
 	// Site description
-	wp.customize( 'blogdescription', function( s ) {
-		s.bind( function( v ) {
-			$( '.site-description' ).html( v );
+	wp.customize( 'blogdescription', function( setting ) {
+		setting.bind( function( newval ) {
+			$( '.site-description' ).html( newval );
 		} );
 	} );
 
 	// Show site description
-	wp.customize( 'ondrejdfirst_site_description', function( s ) {
-		s.bind( function( v ) {
-			if ( v == true ) {
+	wp.customize( 'ondrejdfirst_site_description', function( setting ) {
+		setting.bind( function( newval ) {
+			if ( newval == true ) {
 				$( '.site-description' ).css( 'display', 'block' );
 			} else {
 				$( '.site-description' ).css( 'display', 'none' );
@@ -39,16 +39,16 @@
 	} );
 
 	// Color mode ["white","ubuntu","ubuntu-dark"]
-	wp.customize( 'ondrejdfirst_color_mode', function( s ) {
-		s.bind( function( v ) {
-			if( v != 'white' && v != 'ubuntu' && v != 'ubuntu-dark' ) {
-				v = 'white';
+	wp.customize( 'ondrejdfirst_color_mode', function( setting ) {
+		setting.bind( function( newval ) {
+			if( newval != 'white' && newval != 'ubuntu' && newval != 'ubuntu-dark' ) {
+				newval = 'white';
 			}
 
 			$( 'body' ).removeClass( 'ubuntu' ).removeClass( 'ubuntu-dark' );
 
-			if( v != 'white' ) {
-				$( 'body' ).addClass( v );
+			if( newval != 'white' ) {
+				$( 'body' ).addClass( newval );
 			}
 		} );
 	} );
@@ -126,9 +126,20 @@
 		} );
 	} );
 
+	// Preview Content: Thumbnail
+	wp.customize( 'ondrejdfirst_preview_show_thumbnail', function( setting ) {
+		setting.bind( function( newval ) {
+			if ( newval == true ) {
+				$( 'body' ).addClass( 'posts-show-thumbnails' );
+			} else {
+				$( 'body' ).removeClass( 'posts-show-thumbnails' );
+			}
+		} );
+	} );
+
 	// Preview Content: Category
-	wp.customize( 'ondrejdfirst_preview_show_category', function( value ) {
-		value.bind( function( newval ) {
+	wp.customize( 'ondrejdfirst_preview_show_category', function( setting ) {
+		setting.bind( function( newval ) {
 			if ( newval == true ) {
 				$( '.preview-header .preview-category' ).css( 'display', 'block' );
 			} else {
@@ -138,8 +149,8 @@
 	} );
 
 	// Preview Content: Date and Time
-	wp.customize( 'ondrejdfirst_preview_show_date', function( value ) {
-		value.bind( function( newval ) {
+	wp.customize( 'ondrejdfirst_preview_show_date', function( setting ) {
+		setting.bind( function( newval ) {
 			if ( newval == true ) {
 				$( '.preview-header .preview-date' ).css( 'display', 'block' );
 			} else {
